@@ -1,28 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Alex Barrales-Araneda</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+  <script>
+    function toggleSidebar() {
+      document.getElementById("menu").classList.toggle("hidden");
+    }
+  </script>
 </head>
+
 <body class="bg-gray-100">
   <main class="container mx-auto flex flex-wrap pt-4 pb-12">
     <div class="w-full lg:w-1/4 p-4 rounded-lg bg-gray-300 lg:sticky top-0 lg:z-10 pt-4">
       <div class="flex flex-col items-center py-5">
-        <img class="rounded-full py-4" src="static/profile.gif" width="180" height="180">
-        <h4 class="fw-normal">Alex Barrales-Araneda</h4>
+        <img class="rounded-full py-4" src="static/profile.png" width="180" height="180">
+        <h4 class="font-bold">Alex Barrales-Araneda</h4>
         <p class="text-sm">me(a)alexbarrales(dot)cl</p>
         <div class="flex space-x-2 mt-8">
           <a href="https://github.com/alexfabianb94/"><span class="material-symbols-outlined">code</span></a>
           <a href="https://www.discogs.com/es/user/abarrales/collection"><span
               class="material-symbols-outlined">music_note</span></a>
           <a href="https://orcid.org/0000-0003-4457-5239"><span class="material-symbols-outlined">science</span></a>
-          <a href="static/cv.pdf"> <span class="text-lg material-symbols-outlined">article</span></a>
+          <a href="static/cv.pdf"> <span class="material-symbols-outlined">article</span></a>
         </div>
       </div>
-      <nav class="space-y-1">
+      <button class="p-4 md:hidden text-center w-full" onclick="toggleSidebar()"><span
+          class="material-symbols-outlined">menu</span></button>
+      <nav id="menu" class="space-y-1 hidden md:block">
         <a class="block py-2 text-gray-700 hover:bg-gray-200 px-2 text-center" href="#bio">Bio</a>
         <a class="block py-2 text-gray-700 hover:bg-gray-200 px-2 text-center" href="#education">Education</a>
         <a class="block py-2 text-gray-700 hover:bg-gray-200 px-2 text-center" href="#recent-work">Recent Work</a>
@@ -32,20 +41,31 @@
     </div>
     <div class="w-full lg:w-3/4 px-5">
       <section id="bio" class="section-target py-4">
-        <h2 class="font-bold text-xl mb-2">Bio</h2>
+        <h1 class="font-bold text-xl mb-2">Bio</h1>
         <p>Hi, my name is Alex Barrales Araneda. I obtained the title of M.E. in Industrial Engineering, Industrial
-          Engineer and Bachelor of Engineering Sciences from the University of Bío-Bío, with Carlos Obreque as advisor.
+          Engineer and Bachelor of Engineering Sciences from the University of Bío-Bío, with Carlos Obreque as
+          advisor.
         </p>
+        <div
+          class="relative mt-10 pl-8 ml-14 before:absolute before:top-0 before:left-0 before:w-1 before:h-full before:bg-gray-400">
+          <p class="text-right italic">
+            <cite>Hello friend. That's lame. Maybe I should give you a name, but that's a slippery slope. You're only in
+              my head. We have to remember that.</cite>
+          </p>
+        </div>
       </section>
       <section id="education" class="section-target py-4">
-        <h2 class="font-bold text-xl mb-2">Education</h2>
+        <h1 class="font-bold text-xl mb-2">Education</h1>
         <ul>
-          <li><span class="text-black mr-2">•</span>M.E. in Industrial Engineering, University of Bío-Bío, Chile, 2022.</li>
+          <li><span class="text-black mr-2">•</span>M.E. in Industrial Engineering, University of Bío-Bío, Chile,
+            2022.</li>
           <li><span class="text-black mr-2">•</span>Industrial Engineer, University of Bío-Bío, Chile, 2020.</li>
-          <li><span class="text-black mr-2">•</span>B.S. in Engineering science, University of Bío-Bío, Chile, 2017.</li>
+          <li><span class="text-black mr-2">•</span>B.S. in Engineering science, University of Bío-Bío, Chile, 2017.
+          </li>
+        </ul>
       </section>
       <section id="recent-work" class="section-target py-4">
-        <h2 class="font-bold text-xl mb-2">Recent Work</h2>
+        <h1 class="font-bold text-xl mb-2">Recent Work</h1>
         <ul class="divide-y divide-gray-200">
           <li class="py-2">
             <div class="bg-gray-100 rounded-md p-2">
@@ -54,8 +74,10 @@
                 href="https://orcid.org/0000-0002-5057-5377">Obreque C.</a>, <a
                 href="http://industrial.ubiobio.cl/web/equipo-de-trabajo/cuerpo-academico/guillermo-latorre-nunez/">Latorre-Nuñez
                 G.</a>, <a href="https://orcid.org/0000-0001-6460-5517">Álvarez P.</a>, <strong>Barrales-Araneda
-                A.</strong>, <a href="https://cl.linkedin.com/in/carlos-bizama-fica-b6478755">Bizama C.</a> El problema
-              del ruteo de un furgón escolar, generalizado, selectivo, con carga mixta y ventanas de tiempo. CLAIO 2022
+                A.</strong>, <a href="https://cl.linkedin.com/in/carlos-bizama-fica-b6478755">Bizama C.</a> El
+              problema
+              del ruteo de un furgón escolar, generalizado, selectivo, con carga mixta y ventanas de tiempo. CLAIO
+              2022
             </div>
           </li>
           <li class="py-2">
@@ -76,8 +98,10 @@
               <a href="https://orcid.org/0000-0002-5057-5377">Obreque C.</a>, <a
                 href="http://industrial.ubiobio.cl/web/equipo-de-trabajo/cuerpo-academico/guillermo-latorre-nunez/">Latorre-Nuñez
                 G.</a>, <a href="https://orcid.org/0000-0001-6460-5517">Álvarez P.</a>, <strong>Barrales-Araneda
-                A.</strong>, <a href="https://cl.linkedin.com/in/carlos-bizama-fica-b6478755">Bizama C.</a> El problema
-              del ruteo de furgones escolares selectivo, con carga mixta, flota heterogénea y ventanas de tiempo. CLAIO
+                A.</strong>, <a href="https://cl.linkedin.com/in/carlos-bizama-fica-b6478755">Bizama C.</a> El
+              problema
+              del ruteo de furgones escolares selectivo, con carga mixta, flota heterogénea y ventanas de tiempo.
+              CLAIO
               2022
             </div>
           </li>
@@ -96,7 +120,8 @@
             <div class="bg-gray-100 rounded-md p-2">
               <span class="text-black mr-2">•</span>
               <a href="https://orcid.org/0000-0002-9972-3123">Troncoso F.</a>, <a
-                href="https://www.dii.uchile.cl/quien/richard-weber/">Weber R.</a>, <strong>Barrales-Araneda A.</strong>
+                href="https://www.dii.uchile.cl/quien/richard-weber/">Weber R.</a>, <strong>Barrales-Araneda
+                A.</strong>
               <a href="https://www.euro-online.org/conferences/program/#abstract/3006"> Finding Criminal Groups in
                 Suspect Networks Using a Steiner Tree Approach</a>. EURO 2022
             </div>
@@ -121,6 +146,37 @@
               <span class="text-black mr-2">•</span>
               <strong>Barrales-Araneda A.</strong>, <a href="https://orcid.org/0000-0002-5057-5377">Obreque C.</a>
               Formulation for the median tour problem generalized with cumulative time. ICCL 2019
+            </div>
+          </li>
+        </ul>
+      </section>
+      <section id="research-projects" class="section-target py-4">
+        <h1 class="font-bold text-xl mb-2">Research Projects</h1>
+        <ul class="divide-y divide-gray-200">
+          <li class="py-2">
+            <div class="bg-gray-100 rounded-md p-2">
+              <span class="text-black mr-2">•</span>
+              <a href="https://cl.linkedin.com/in/richard-riffo-sandoval">Riffo-Sandoval R.</a>, <a
+                href="https://orcid.org/0000-0002-5057-5377">Obreque C.</a>, <a
+                href="http://industrial.ubiobio.cl/web/equipo-de-trabajo/cuerpo-academico/guillermo-latorre-nunez/">Latorre-Nuñez
+                G.</a>, <a href="https://orcid.org/0000-0001-6460-5517">Álvarez P.</a>, <strong>Barrales-Araneda
+                A.</strong>, <a href="https://cl.linkedin.com/in/carlos-bizama-fica-b6478755">Bizama C.</a> El
+              problema
+              del ruteo de un furgón escolar, generalizado, selectivo, con carga mixta y ventanas de tiempo. CLAIO
+              2022
+            </div>
+          </li>
+          <li class="py-2">
+            <div class="bg-white rounded-md p-2">
+              <span class="text-black mr-2">•</span>
+              <a href="https://cl.linkedin.com/in/richard-riffo-sandoval">Riffo-Sandoval R.</a>, <a
+                href="https://orcid.org/0000-0002-5057-5377">Obreque C.</a>, <a
+                href="http://industrial.ubiobio.cl/web/equipo-de-trabajo/cuerpo-academico/guillermo-latorre-nunez/">Latorre-Nuñez
+                G.</a>, <a href="https://orcid.org/0000-0001-6460-5517">Álvarez P.</a>, <strong>Barrales-Araneda
+                A.</strong>, <a href="https://cl.linkedin.com/in/carlos-bizama-fica-b6478755">Bizama C.</a> El
+              problema
+              del ruteo de un furgón escolar, generalizado, selectivo, con carga mixta y ventanas de tiempo. CLAIO
+              2022
             </div>
           </li>
         </ul>
