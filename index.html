@@ -1,234 +1,1160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Alex Barrales-Araneda</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
-  <style>
-    .text-blue-900 {
-      color: #1A2F48;
-    }
-    .text-red-800 {
-      color: #A21C26;
-    }
-    .text-gray-200 {
-      color: #ECECEC;
-    }
-  </style>
-  <script>
-    function toggleSidebar() {
-      document.getElementById("menu").classList.toggle("hidden");
-    }
-    function adjustScroll() {
-      const offset = document.querySelector('nav').offsetHeight;
-      setTimeout(() => {
-        window.scrollBy(0, -offset);
-      }, 1);
-    }
-  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"/>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body class="bg-gray-100">
-  <header class="hidden md:block bg-white shadow-md sticky top-0 z-50">
-    <nav class="container mx-auto flex justify-between items-center py-4">
-      <div class="text-lg font-semibold"></div>
-      <div class="flex space-x-4">
-        <a href="#bio" class="text-gray-700 hover:text-blue-900 hover:font-bold">Bio</a>
-        <a href="#education" class="text-gray-700 hover:text-red-800 hover:font-bold">Education</a>
-        <a href="#conferences" class="text-gray-700 hover:text-blue-900 hover:font-bold">Conferences</a>
-        <a href="#research-projects" class="text-gray-700 hover:text-red-800 hover:font-bold">Research Projects</a>
-      </div>
-    </nav>
-  </header>
-  <main class="container mx-auto flex flex-wrap pt-4 pb-12">
-    <div class="w-full h-full lg:w-1/4 p-4 rounded-lg bg-gray-200 lg:sticky top-16 lg:z-10 pt-4">
-      <div class="flex flex-col items-center py-5">
-        <img class="rounded-full py-4" src="static/profile.png" width="180" height="180">
-        <h4 class="font-bold">Alex Barrales-Araneda</h4>
-        <p class="text-sm">me(a)alexbarrales(dot)cl</p>
-        <div class="flex space-x-2 mt-8">
-          <a class="hover:scale-125" href="https://github.com/alexfabianb94/" aria-label="GitHub">
-            <svg width="24" height="22" viewBox="0 0 34 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M17.2617 0C8.25666 0 0.97699 7.33333 0.97699 16.4057C0.97699 23.6577 5.64132 29.7963 12.112 31.969C12.921 32.1323 13.2173 31.616 13.2173 31.1817C13.2173 30.8013 13.1907 29.4977 13.1907 28.1393C8.66066 29.1173 7.71732 26.1837 7.71732 26.1837C6.98932 24.2823 5.91066 23.7937 5.91066 23.7937C4.42799 22.7887 6.01866 22.7887 6.01866 22.7887C7.66332 22.8973 8.52632 24.4727 8.52632 24.4727C9.98199 26.9713 12.3277 26.2653 13.2713 25.8307C13.406 24.7713 13.8377 24.038 14.296 23.6307C10.683 23.2503 6.88166 21.838 6.88166 15.5363C6.88166 13.7437 7.52832 12.277 8.55299 11.1363C8.39132 10.729 7.82499 9.04467 8.71499 6.79033C8.71499 6.79033 10.09 6.35567 13.1903 8.47433C14.5177 8.11522 15.8866 7.93254 17.2617 7.931C18.6367 7.931 20.0383 8.12133 21.3327 8.47433C24.4333 6.35567 25.8083 6.79033 25.8083 6.79033C26.6983 9.04467 26.1317 10.729 25.97 11.1363C27.0217 12.277 27.6417 13.7437 27.6417 15.5363C27.6417 21.838 23.8403 23.223 20.2003 23.6307C20.7937 24.1467 21.3057 25.1243 21.3057 26.6727C21.3057 28.8727 21.279 30.6383 21.279 31.1813C21.279 31.616 21.5757 32.1323 22.3843 31.9693C28.855 29.796 33.5193 23.6577 33.5193 16.4057C33.546 7.33333 26.2397 0 17.2617 0Z" fill="#212121"/>
-            </svg>
-          </a>
-          <a class="hover:scale-125" href="https://www.discogs.com/es/user/abarrales/collection"><span class="material-symbols-outlined">music_note</span></a>
-          <a class="hover:scale-125" href="https://orcid.org/0000-0003-4457-5239"><span class="material-symbols-outlined">science</span></a>
-          <a class="hover:scale-125" href="static/curriculum_vitae.pdf"><span class="material-symbols-outlined">article</span></a>
+<body class="min-h-screen bg-gradient-to-br from-[#ececec] to-white">
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent">
+    <div class="max-w-6xl mx-auto px-4 py-4">
+      <div class="flex justify-between items-center">
+        <div id="navbar-brand" class="font-bold text-xl transition-colors duration-300 text-white">
+          Alex Barrales-Araneda
+        </div>
+        <div class="hidden md:flex space-x-8">
+          <button
+            onclick="scrollToSection('bio')"
+            id="nav-bio"
+            class="flex items-center space-x-2 px-3 py-2 rounded-lg transition-all duration-200 text-white hover:bg-white/20"
+          >
+            <span class="material-symbols-outlined">account_circle</span>
+            <span>Bio</span>
+          </button>
+          <button
+            onclick="scrollToSection('education')"
+            id="nav-education"
+            class="flex items-center space-x-2 px-3 py-2 rounded-lg transition-all duration-200 text-white hover:bg-white/20"
+          >
+            <span class="material-symbols-outlined">school</span>
+            <span>Education</span>
+          </button>
+          <button
+            onclick="scrollToSection('conferences')"
+            id="nav-conferences"
+            class="flex items-center space-x-2 px-3 py-2 rounded-lg transition-all duration-200 text-white hover:bg-white/20"
+          >
+            <span class="material-symbols-outlined">event</span>
+            <span>Conferences</span>
+          </button>
+          <button
+            onclick="scrollToSection('projects')"
+            id="nav-projects"
+            class="flex items-center space-x-2 px-3 py-2 rounded-lg transition-all duration-200 text-white hover:bg-white/20"
+          >
+            <span class="material-symbols-outlined">folder_special</span>
+            <span>Research Projects</span>
+          </button>
         </div>
       </div>
-      <button class="p-4 md:hidden text-center w-full" onclick="toggleSidebar()"><span class="material-symbols-outlined">menu</span></button>
-      <nav id="menu" class="space-y-1 hidden md:block">
-        <a class="block py-2 text-gray-700 rounded hover:bg-red-800 hover:text-white hover:font-bold px-2 text-center" href="#bio">Bio</a>
-        <a class="block py-2 text-gray-700 rounded hover:bg-blue-900 hover:text-white hover:font-bold px-2 text-center" href="#education">Education</a>
-        <a class="block py-2 text-gray-700 rounded hover:bg-red-800 hover:text-white hover:font-bold px-2 text-center" href="#conferences">Conferences</a>
-        <a class="block py-2 text-gray-700 rounded hover:bg-blue-900 hover:text-white hover:font-bold px-2 text-center" href="#research-projects">Research Projects</a>
-      </nav>
     </div>
-    <div class="w-full lg:w-3/4 px-5">
-      <section id="bio" class="section-target py-4">
-        <h1 class="font-bold text-red-800 text-xl mb-2">Bio</h1>
-        <p>Hi, my name is Alex Barrales Araneda. I am currently a PhD Student in the Biomedical, Electrical, and Systems Engineering program at the University of Bologna. Previously, I obtained the title of M.E. in Industrial Engineering, Industrial Engineer, and Bachelor of Engineering Sciences from the University of Bío-Bío.</p>
-        <div class="relative mt-10 pl-8 ml-14 before:absolute before:top-0 before:left-0 before:w-1 before:h-full before:bg-blue-900">
-          <p class="text-right italic">
-            <cite>Hello friend. That's lame. Maybe I should give you a name, but that's a slippery slope. You're only in my head. We have to remember that.</cite>
+  </nav>
+  <section class="relative pt-24 pb-16 px-4 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-[#1a2f48] via-[#1a2f48]/90 to-[#a21c26]/80">
+      <div class="absolute -top-40 -right-40 w-80 h-80 bg-white/5 rounded-full blur-3xl animate-pulse"></div>
+      <div class="absolute top-20 -left-20 w-60 h-60 bg-[#a21c26]/10 rounded-full blur-2xl animate-pulse delay-1000"></div>
+      <div class="absolute bottom-20 right-20 w-32 h-32 bg-white/10 rounded-full blur-xl animate-pulse delay-2000"></div>
+  
+      <div class="absolute inset-0 opacity-5">
+        <div class="grid grid-cols-12 gap-4 h-full">
+          <div class="border border-white/20 col-span-12 h-full"></div>
+        </div>
+      </div>
+  
+      <div class="absolute inset-0">
+        <div class="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-white/10 to-transparent rotate-12"></div>
+        <div class="absolute top-0 left-2/4 w-px h-full bg-gradient-to-b from-transparent via-[#a21c26]/20 to-transparent -rotate-12"></div>
+        <div class="absolute top-0 left-3/4 w-px h-full bg-gradient-to-b from-transparent via-white/10 to-transparent rotate-12"></div>
+      </div>
+  
+      <div class="absolute inset-0 bg-gradient-to-r from-[#1a2f48]/50 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-6xl mx-auto">
+      <div class="grid lg:grid-cols-3 gap-8 items-center">
+        <div class="lg:col-span-2 space-y-6">
+          <div class="space-y-4">
+            <h1 class="text-4xl lg:text-6xl font-bold text-white leading-tight drop-shadow-lg">
+              Alex Barrales-Araneda
+            </h1>
+            <div class="flex items-center space-x-2 text-white/90">
+              <span class="material-symbols-outlined">location_on</span>
+              <span>PhD Student • University of Bologna</span>
+            </div>
+            <p class="text-xl text-white/80 leading-relaxed">
+              Biomedical, Electrical, and Systems Engineering
+            </p>
+          </div>
+  
+          <div class="flex flex-wrap gap-3">
+            <a href="mailto:me(a)alexbarrales.cl"
+               class="flex items-center space-x-2 bg-[#a21c26] hover:bg-[#a21c26]/90 text-white font-medium py-2 px-4 rounded-lg shadow-lg hover:shadow-xl transition-all">
+              <span class="material-symbols-outlined">mail</span>
+              <span>me(a)alexbarrales.cl</span>
+            </a>
+            <a href="https://github.com/alexfabianb94" target="_blank" rel="noopener noreferrer"
+               class="flex items-center space-x-2 border border-white/30 text-white hover:bg-white hover:text-[#1a2f48] backdrop-blur-sm bg-white/10 font-medium py-2 px-4 rounded-lg shadow-lg hover:shadow-xl transition-all">
+              <span class="material-symbols-outlined">code</span>
+              <span>GitHub</span>
+            </a>
+            <a href="static/curriculum_vitae.pdf" target="_blank"
+               class="flex items-center space-x-2 border border-white/30 text-white hover:bg-white hover:text-[#1a2f48] backdrop-blur-sm bg-white/10 font-medium py-2 px-4 rounded-lg shadow-lg hover:shadow-xl transition-all">
+              <span class="material-symbols-outlined">description</span>
+              <span>CV</span>
+            </a>
+          </div>
+        </div>
+        <div class="flex justify-center lg:justify-end">
+          <div class="relative">
+            <div class="absolute inset-0 bg-gradient-to-br from-white/20 to-[#a21c26]/20 rounded-full blur-2xl scale-110"></div>
+            <div class="relative w-64 h-64 rounded-full bg-gradient-to-br from-white to-[#ececec] p-1 shadow-2xl">
+              <div class="w-full h-full rounded-full bg-white p-2">
+                <img src="static/profile.png" alt="Alex Barrales-Araneda"
+                     class="w-full h-full rounded-full object-cover" />
+              </div>
+            </div>
+            <div class="absolute -bottom-2 -right-2 bg-[#a21c26] w-8 h-8 rounded-full border-4 border-white shadow-lg"></div>
+            <div class="absolute -top-4 -left-4 w-3 h-3 bg-white/60 rounded-full animate-bounce delay-300"></div>
+            <div class="absolute -bottom-6 -left-6 w-2 h-2 bg-[#a21c26]/60 rounded-full animate-bounce delay-700"></div>
+            <div class="absolute -top-6 -right-6 w-2 h-2 bg-white/60 rounded-full animate-bounce delay-1000"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="bio" class="py-16 px-4">
+    <div class="max-w-4xl mx-auto">
+      <div class="border-0 p-6 shadow-xl bg-white/80 backdrop-blur-sm rounded-lg space-y-6">
+        <div class="flex items-center space-x-2 text-2xl text-[#1a2f48] font-semibold">
+          <span class="material-symbols-outlined">person</span>
+          <span>About Me</span>
+        </div>
+        <p class="text-lg text-[#1a2f48]/80 leading-relaxed">
+          Hi, my name is Alex Barrales Araneda. I am currently a PhD Student in the Biomedical, Electrical, and
+          Systems Engineering program at the University of Bologna. Previously, I obtained the title of M.E. in
+          Industrial Engineering, Industrial Engineer, and Bachelor of Engineering Sciences from the University
+          of Bío-Bío.
+        </p>
+        <div class="bg-gradient-to-r from-[#ececec] to-white border-l-4 border-[#a21c26] rounded-md">
+          <div class="pt-6 pb-4 px-4">
+            <blockquote class="text-[#1a2f48]/70 italic text-lg">
+              "Hello friend. That's lame. Maybe I should give you a name, but that's a slippery slope. You're
+              only in my head. We have to remember that."
+            </blockquote>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-4">
+          <div class="text-center p-4 bg-[#ececec] rounded-lg">
+            <div class="text-2xl font-bold text-[#a21c26]">PhD</div>
+            <div class="text-sm text-[#1a2f48]/70">Current Studies</div>
+          </div>
+          <div class="text-center p-4 bg-[#ececec] rounded-lg">
+            <div class="text-2xl font-bold text-[#a21c26]">M.E.</div>
+            <div class="text-sm text-[#1a2f48]/70">Industrial Engineering</div>
+          </div>
+          <div class="text-center p-4 bg-[#ececec] rounded-lg">
+            <div class="text-2xl font-bold text-[#a21c26]">B.S.</div>
+            <div class="text-sm text-[#1a2f48]/70">Engineering Sciences</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="research" class="py-16 px-4 bg-[#ececec]">
+    <div class="max-w-4xl mx-auto">
+      <div class="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white rounded-lg">
+        <div class="p-6 text-center">
+          <div class="flex items-center justify-center space-x-2 mb-4">
+            <span class="material-symbols-outlined text-[#a21c26] text-2xl">workspace_premium</span>
+            <h3 class="text-xl font-semibold text-[#1a2f48]">Research Focus</h3>
+          </div>
+          <p class="text-[#1a2f48]/70 mb-4 text-sm md:text-base">
+            My research focuses on the intersection of data analytics, machine learning, and criminal justice
+            systems, developing innovative solutions for crime investigation and prosecution.
           </p>
+          <div class="flex flex-wrap justify-center gap-2">
+            <span class="border border-[#1a2f48] text-[#1a2f48] text-sm font-medium rounded-md px-2 py-0.5">
+              Data Analytics
+            </span>
+            <span class="border border-[#1a2f48] text-[#1a2f48] text-sm font-medium rounded-md px-2 py-0.5">
+              Machine Learning
+            </span>
+            <span class="border border-[#1a2f48] text-[#1a2f48] text-sm font-medium rounded-md px-2 py-0.5">
+              Criminal Justice
+            </span>
+            <span class="border border-[#1a2f48] text-[#1a2f48] text-sm font-medium rounded-md px-2 py-0.5">
+              AI Systems
+            </span>
+            <span class="border border-[#1a2f48] text-[#1a2f48] text-sm font-medium rounded-md px-2 py-0.5">
+              Text Processing
+            </span>
+          </div>
         </div>
-      </section>
-      <section id="education" class="section-target py-4">
-        <h1 class="font-bold text-blue-900 text-xl mb-2">Education</h1>
-        <ul>
-          <li><span class="text-black mr-2">•</span>M.E. in Industrial Engineering, University of Bío-Bío, Chile, 2022.</li>
-          <li><span class="text-black mr-2">•</span>Industrial Engineer, University of Bío-Bío, Chile, 2020.</li>
-          <li><span class="text-black mr-2">•</span>B.S. in Engineering Science, University of Bío-Bío, Chile, 2017.</li>
-        </ul>
-      </section>
-      <section id="conferences" class="section-target py-4">
-        <h1 class="font-bold text-red-800 text-xl mb-2">Conferences</h1>
-        <ul class="divide-y divide-gray-200">
-          <li class="py-2">
-            <div class="bg-gray-100 rounded-md p-2">
-              <span class="text-black mr-2">•</span>
-              <a href="https://www.dii.uchile.cl/quien/richard-weber/" class="hover:underline"><strong class="text-blue-900">Weber R.</strong></a>, <a href="https://orcid.org/0000-0003-4612-1409" class="hover:underline">Vairetti C.</a>, <a href="https://orcid.org/0000-0002-9972-3123" class="hover:underline">Troncoso F.</a>, <a href="https://orcid.org/0000-0002-7124-0437" class="hover:underline">Maldonado S.</a>, Barrales-Araneda A., Reyes V., Pincheira P.. Optimization models for crime analytics applied to social networks. EURO 2024. Copenhagen, Denmark
-            </div>
-          </li>
-          <li class="py-2">
-            <div class="bg-white rounded-md p-2">
-              <span class="text-black mr-2">•</span>
-              <a href="https://www.dii.uchile.cl/quien/richard-weber/" class="hover:underline">Weber R.</a>, <strong class="text-red-800">Barrales-Araneda A.</strong>, <a href="https://orcid.org/0000-0002-9972-3123" class="hover:underline">Troncoso F.</a>. Optimization models for crime analytics applied to social networks. IFORS 2023. Santiago, Chile
-            </div>
-          </li>
-          <li class="py-2">
-            <div class="bg-gray-100 rounded-md p-2">
-              <span class="text-black mr-2">•</span>
-              <a href="https://cl.linkedin.com/in/richard-riffo-sandoval" class="hover:underline"><strong class="text-blue-900">Riffo-Sandoval R.</strong></a>, <a href="https://orcid.org/0000-0002-5057-5377" class="hover:underline">Obreque C.</a>, <a href="http://industrial.ubiobio.cl/web/equipo-de-trabajo/cuerpo-academico/guillermo-latorre-nunez/" class="hover:underline">Latorre-Nuñez G.</a>, <a href="https://orcid.org/0000-0001-6460-5517" class="hover:underline">Álvarez P.</a>, Barrales-Araneda A., <a href="https://cl.linkedin.com/in/carlos-bizama-fica-b6478755" class="hover:underline">Bizama C.</a> El problema del ruteo de un furgón escolar, generalizado, selectivo, con carga mixta y ventanas de tiempo. CLAIO 2022. Buenos Aires, Argentina
-            </div>
-          </li>
-          <li class="py-2">
-            <div class="bg-white rounded-md p-2">
-              <span class="text-black mr-2">•</span>
-              <a href="https://cl.linkedin.com/in/natalia-villanueva-de-la-fuente-82463120a" class="hover:underline"><strong class="text-red-800">Villanueva N.</strong></a>, <a href="https://orcid.org/0000-0002-5057-5377" class="hover:underline">Obreque C.</a>, <a href="http://industrial.ubiobio.cl/web/equipo-de-trabajo/cuerpo-academico/guillermo-latorre-nunez/" class="hover:underline">Latorre-Nuñez G.</a>, <a href="https://orcid.org/0000-0001-6460-5517" class="hover:underline">Álvarez P.</a>, Barrales-Araneda A., <a href="https://cl.linkedin.com/in/carlos-bizama-fica-b6478755" class="hover:underline">Bizama C.</a> The Multiperiod Set Team Orienteering Problem with Time Windows. CLAIO 2022. Buenos Aires, Argentina
-            </div>
-          </li>
-          <li class="py-2">
-            <div class="bg-gray-100 rounded-md p-2">
-              <span class="text-black mr-2">•</span>
-              <a href="https://cl.linkedin.com/in/maddlen-benedicto-villagra-aguayo-48a17612b" class="hover:underline"><strong class="text-blue-900">Villagra-Aguayo M.</strong></a>, <a href="https://orcid.org/0000-0002-5057-5377" class="hover:underline">Obreque C.</a>, <a href="http://industrial.ubiobio.cl/web/equipo-de-trabajo/cuerpo-academico/guillermo-latorre-nunez/" class="hover:underline">Latorre-Nuñez G.</a>, <a href="https://orcid.org/0000-0001-6460-5517" class="hover:underline">Álvarez P.</a>, Barrales-Araneda A., <a href="https://cl.linkedin.com/in/carlos-bizama-fica-b6478755" class="hover:underline">Bizama C.</a> El problema del ruteo de furgones escolares selectivo, con carga mixta, flota heterogénea y ventanas de tiempo. CLAIO 2022. Buenos Aires, Argentina
-            </div>
-          </li>
-          <li class="py-2">
-            <div class="bg-white rounded-md p-2">
-              <span class="text-black mr-2">•</span>
-              <a href="https://orcid.org/0000-0002-5057-5377" class="hover:underline"><strong class="text-red-800">Obreque C.</strong></a>, <a href="http://industrial.ubiobio.cl/web/equipo-de-trabajo/cuerpo-academico/guillermo-latorre-nunez/" class="hover:underline">Latorre-Nuñez G.</a>, <a href="https://orcid.org/0000-0001-6460-5517" class="hover:underline">Álvarez P.</a>, Barrales-Araneda A., <a href="https://cl.linkedin.com/in/carlos-bizama-fica-b6478755" class="hover:underline">Bizama C.</a>, <a href="https://cl.linkedin.com/in/maddlen-benedicto-villagra-aguayo-48a17612b" class="hover:underline">Villagra-Aguayo M.</a> Ruteo de furgones escolares selectivo, con carga mixta, flota homogénea y transbordo. CLAIO 2022. Buenos Aires, Argentina
-            </div>
-          </li>
-          <li class="py-2">
-            <div class="bg-gray-100 rounded-md p-2">
-              <span class="text-black mr-2">•</span>
-              <a href="https://orcid.org/0000-0002-9972-3123" class="hover:underline">Troncoso F.</a>, <a href="https://www.dii.uchile.cl/quien/richard-weber/" class="hover:underline"><strong class="text-blue-900">Weber R.</strong></a>, Barrales-Araneda A. <a href="https://www.euro-online.org/conferences/program/#abstract/3006" class="hover:underline">Finding Criminal Groups in Suspect Networks Using a Steiner Tree Approach</a>. EURO 2022. Espoo, Finland
-            </div>
-          </li>
-          <li class="py-2">
-            <div class="bg-white rounded-md p-2">
-              <span class="text-black mr-2">•</span>
-              <strong class="text-red-800">Barrales-Araneda A.</strong>, <a href="https://orcid.org/0000-0002-5057-5377" class="hover:underline">Obreque C.</a> Un modelo de programación lineal entera para el Median Tour Problem Generalizado con Tiempo Acumulado. Encuentro de Investigación de Estudiantes de Postgrado UBB 2020. Concepción, Chile
-            </div>
-          </li>
-          <li class="py-2">
-            <div class="bg-gray-100 rounded-md p-2">
-              <span class="text-black mr-2">•</span>
-              <strong class="text-blue-900">Barrales-Araneda A.</strong>, <a href="https://orcid.org/0000-0002-5057-5377" class="hover:underline">Obreque C.</a> Formulación y solución para el median tour problem generalizado con tiempo acumulado. OPTIMA 2019. Santa Cruz, Chile
-            </div>
-          </li>
-          <li class="py-2">
-            <div class="bg-white rounded-md p-2">
-              <span class="text-black mr-2">•</span>
-              <strong class="text-red-800">Barrales-Araneda A.</strong>, <a href="https://orcid.org/0000-0002-5057-5377" class="hover:underline">Obreque C.</a> Formulation for the median tour problem generalized with cumulative time. ICCL 2019. Barranquilla, Colombia
-            </div>
-          </li>
-        </ul>
-      </section>
-      <section id="research-projects" class="section-target py-4">
-        <h1 class="font-bold text-blue-900 text-xl mb-2">Research Projects</h1>
-        <ul class="divide-y divide-gray-200">
-          <li class="py-2">
-            <div class="bg-gray-100 rounded-md p-2">
-              <span class="text-black mr-2">•</span>
-              FONDEF IT23I0061, University of Bío-Bío - Research Assistant: Scaling and validation of an integrated system for crime prosecution using advanced data analytics.
-            </div>
-          </li>
-          <li class="py-2">
-            <div class="bg-white rounded-md p-2">
-              <span class="text-black mr-2">•</span>
-              ISCI - ISCI Impact Fund, University of Chile - Research Assistant: Developed tools for processing large text volumes for crime investigation and AI-based systems for query translation.
-            </div>
-          </li>
-          <li class="py-2">
-            <div class="bg-gray-100 rounded-md p-2">
-              <span class="text-black mr-2">•</span>
-              Public Prosecutor's Office, University of Chile - Research Assistant: Developed ML algorithms for fraud/homicide cases and enhanced the Fiscal Heredia system with new data sources.
-            </div>
-          </li>
-          <li class="py-2">
-            <div class="bg-white rounded-md p-2">
-              <span class="text-black mr-2">•</span>
-              FONDECYT 1221562, University of Chile - Research Assistant: Implemented OCoDeDANet for community detection in dynamic graphs and contributed to related publication.
-            </div>
-          </li>
-          <li class="py-2">
-            <div class="bg-gray-100 rounded-md p-2">
-              <span class="text-black mr-2">•</span>
-              Project 2160285 GI/EF, University of Bío-Bío - Research Assistant: Designed a logistics system for organic waste collection. Participated in scientific research in Operations Research.
-            </div>
-          </li>
-          <li class="py-2">
-            <div class="bg-white rounded-md p-2">
-              <span class="text-black mr-2">•</span>
-              FONDEF ID20I10230, University of Bío-Bío - Research Assistant: Developed optimization models for social network analysis to identify criminal groups and delivered the "Fiscal Heredia" prototype.
-            </div>
-          </li>
-          <li class="py-2">
-            <div class="bg-gray-100 rounded-md p-2">
-              <span class="text-black mr-2">•</span>
-              Project UBB 2155, University of Bío-Bío - Research Assistant: Analyzed public databases for traffic analysis in the city of Chillán and evaluated student transportation policies.
-            </div>
-          </li>
-          <li class="py-2">
-            <div class="bg-white rounded-md p-2">
-              <span class="text-black mr-2">•</span>
-              FONDECYT 1181036, University of Chile - Research Assistant: Developed advanced algorithms for community detection in dynamic social networks, and submitted for journal evaluation.
-            </div>
-          </li>
-          <li class="py-2">
-            <div class="bg-gray-100 rounded-md p-2">
-              <span class="text-black mr-2">•</span>
-              Project ING 2030 I+D 20-45, University of Bío-Bío - Research Assistant: Collaborated on a MIP model for the School Bus Routing Problem and developed a related mobile app.
-            </div>
-          </li>
-          <li class="py-2">
-            <div class="bg-white rounded-md p-2">
-              <span class="text-black mr-2">•</span>
-              Research Group, GI 171411/EF, University of Bío-Bío - Research Assistant: Formulated a linear programming model for the Generalized Median Tour Problem with Latency.
-            </div>
-          </li>
-          <li class="py-2">
-            <div class="bg-gray-100 rounded-md p-2">
-              <span class="text-black mr-2">•</span>
-              Spatial Economics Laboratory, University of Bío-Bío - Research Assistant: Analyzed sociodemographic data for Concepción and processed logistical cost data for the National Congress.
-            </div>
-          </li>
-        </ul>
-      </section>
+      </div>
     </div>
-  </main>
-  <footer class="bg-gray-200 text-center py-4">
-    <p class="text-sm text-gray-700">I didn't expect anyone to come this far. Someday I'll put something more interesting. Thanks for reading.</p>
+  </section>
+  <section id="education" class="py-16 px-4 bg-[#ececec]">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-[#1a2f48] mb-4">Education</h2>
+        <p class="text-[#1a2f48]/70">My academic journey and qualifications</p>
+      </div>
+      <div class="space-y-6">
+        <div class="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white rounded-lg">
+          <div class="p-6">
+            <div class="flex items-start justify-between">
+              <div class="space-y-2">
+                <h3 class="text-xl font-semibold text-[#1a2f48]">
+                  PhD in Biomedical, Electrical, and Systems Engineering
+                </h3>
+                <p class="text-[#1a2f48]/70">University of Bologna • Italy</p>
+              </div>
+              <div class="text-right">
+                <div class="inline-block px-2 py-1 text-sm font-medium bg-[#a21c26] text-white rounded">
+                  2023 - Present
+                </div>
+                <div class="text-sm text-[#a21c26] mt-1">In Progress</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white rounded-lg">
+          <div class="p-6">
+            <div class="flex items-start justify-between">
+              <div class="space-y-2">
+                <h3 class="text-xl font-semibold text-[#1a2f48]">
+                  M.E. in Industrial Engineering
+                </h3>
+                <p class="text-[#1a2f48]/70">University of Bío-Bío • Chile</p>
+              </div>
+              <div class="text-right">
+                <div class="inline-block px-2 py-1 text-sm font-medium bg-[#ececec] text-[#1a2f48] rounded">
+                  2022
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white rounded-lg">
+          <div class="p-6">
+            <div class="flex items-start justify-between">
+              <div class="space-y-2">
+                <h3 class="text-xl font-semibold text-[#1a2f48]">Industrial Engineer</h3>
+                <p class="text-[#1a2f48]/70">University of Bío-Bío • Chile</p>
+              </div>
+              <div class="text-right">
+                <div class="inline-block px-2 py-1 text-sm font-medium bg-[#ececec] text-[#1a2f48] rounded">
+                  2020
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white rounded-lg">
+          <div class="p-6">
+            <div class="flex items-start justify-between">
+              <div class="space-y-2">
+                <h3 class="text-xl font-semibold text-[#1a2f48]">B.S. in Engineering Science</h3>
+                <p class="text-[#1a2f48]/70">University of Bío-Bío • Chile</p>
+              </div>
+              <div class="text-right">
+                <div class="inline-block px-2 py-1 text-sm font-medium bg-[#ececec] text-[#1a2f48] rounded">
+                  2017
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="conferences" class="py-16 px-4">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-[#1a2f48] mb-4">
+          Conferences & Publications
+        </h2>
+        <p class="text-[#1a2f48]/70">
+          Research contributions and academic presentations
+        </p>
+      </div>
+      <div class="space-y-6">
+        <div class="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] bg-white">
+          <div class="p-6">
+            <div class="space-y-3">
+              <div class="flex items-start justify-between">
+                <div class="mb-2 border border-[#1a2f48] text-[#1a2f48] text-sm font-medium rounded-md px-2 py-0.5">
+                  Conference
+                </div>
+                <div class="flex items-center space-x-2 text-[#1a2f48]/70 text-sm">
+                  <span class="material-symbols-outlined">calendar_today</span>
+                  <span>2024</span>
+                </div>
+              </div>
+              <h3 class="text-lg font-semibold text-[#1a2f48] leading-tight">
+                Optimization in social networks to identify related crimes
+              </h3>
+              <p class="text-[#1a2f48]/70 text-sm">
+                <strong class="font-bold">R. Weber</strong>, C. Vairetti, F. Troncoso, S. Maldonado, A. Barrales-Araneda, V. Reyes, P. Pincheira
+              </p>
+              <div class="flex items-center justify-between pt-2">
+                <div class="flex items-center space-x-2 text-[#1a2f48]/70 text-sm">
+                  <span class="material-symbols-outlined">place</span>
+                  <span>EURO 2024 • Copenhagen, Denmark</span>
+                </div>
+                <button class="hidden flex items-center space-x-1 text-[#a21c26] hover:bg-[#a21c26]/10 text-sm px-2 py-1 rounded">
+                  <span class="material-symbols-outlined">visibility</span>
+                  <span>View</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] bg-white">
+          <div class="p-6">
+            <div class="space-y-3">
+              <div class="flex items-start justify-between">
+                <div class="mb-2 border border-[#1a2f48] text-[#1a2f48] text-sm font-medium rounded-md px-2 py-0.5">
+                  Conference
+                </div>
+                <div class="flex items-center space-x-2 text-[#1a2f48]/70 text-sm">
+                  <span class="material-symbols-outlined">calendar_today</span>
+                  <span>2023</span>
+                </div>
+              </div>
+              <h3 class="text-lg font-semibold text-[#1a2f48] leading-tight">
+                Optimization models for crime analytics applied to social networks
+              </h3>
+              <p class="text-[#1a2f48]/70 text-sm">
+                R. Weber, <strong class="font-bold">A. Barrales-Araneda</strong>, F. Troncoso
+              </p>
+              <div class="flex items-center justify-between pt-2">
+                <div class="flex items-center space-x-2 text-[#1a2f48]/70 text-sm">
+                  <span class="material-symbols-outlined">place</span>
+                  <span>IFORS 2023 • Santiago, Chile</span>
+                </div>
+                <button class="hidden flex items-center space-x-1 text-[#a21c26] hover:bg-[#a21c26]/10 text-sm px-2 py-1 rounded">
+                  <span class="material-symbols-outlined">visibility</span>
+                  <span>View</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] bg-white">
+          <div class="p-6">
+            <div class="space-y-3">
+              <div class="flex items-start justify-between">
+                <div class="mb-2 border border-[#1a2f48] text-[#1a2f48] text-sm font-medium rounded-md px-2 py-0.5">
+                  Conference
+                </div>
+                <div class="flex items-center space-x-2 text-[#1a2f48]/70 text-sm">
+                  <span class="material-symbols-outlined">calendar_today</span>
+                  <span>2022</span>
+                </div>
+              </div>
+              <h3 class="text-lg font-semibold text-[#1a2f48] leading-tight">
+                El problema del ruteo de un furgón escolar, generalizado, selectivo, con carga mixta y ventanas de tiempo
+              </h3>
+              <p class="text-[#1a2f48]/70 text-sm">
+                <strong class="font-bold">R. Riffo-Sandoval</strong>, C. Obreque, G. Latorre-Nuñez, P. Álvarez, A. Barrales-Araneda, C. Bizama
+              </p>
+              <div class="flex items-center justify-between pt-2">
+                <div class="flex items-center space-x-2 text-[#1a2f48]/70 text-sm">
+                  <span class="material-symbols-outlined">place</span>
+                  <span>CLAIO 2022 • Buenos Aires, Argentina</span>
+                </div>
+                <button class="hidden flex items-center space-x-1 text-[#a21c26] hover:bg-[#a21c26]/10 text-sm px-2 py-1 rounded">
+                  <span class="material-symbols-outlined">visibility</span>
+                  <span>View</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] bg-white">
+          <div class="p-6">
+            <div class="space-y-3">
+              <div class="flex items-start justify-between">
+                <div class="mb-2 border border-[#1a2f48] text-[#1a2f48] text-sm font-medium rounded-md px-2 py-0.5">
+                  Conference
+                </div>
+                <div class="flex items-center space-x-2 text-[#1a2f48]/70 text-sm">
+                  <span class="material-symbols-outlined">calendar_today</span>
+                  <span>2022</span>
+                </div>
+              </div>
+              <h3 class="text-lg font-semibold text-[#1a2f48] leading-tight">
+                The Multiperiod Set Team Orienteering Problem with Time Windows
+              </h3>
+              <p class="text-[#1a2f48]/70 text-sm">
+                <strong class="font-bold">N. Villanueva</strong>, C. Obreque, G. Latorre-Nuñez, P. Álvarez, A. Barrales-Araneda, C. Bizama
+              </p>
+              <div class="flex items-center justify-between pt-2">
+                <div class="flex items-center space-x-2 text-[#1a2f48]/70 text-sm">
+                  <span class="material-symbols-outlined">place</span>
+                  <span>CLAIO 2022 • Buenos Aires, Argentina</span>
+                </div>
+                <button class="hidden flex items-center space-x-1 text-[#a21c26] hover:bg-[#a21c26]/10 text-sm px-2 py-1 rounded">
+                  <span class="material-symbols-outlined">visibility</span>
+                  <span>View</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] bg-white">
+          <div class="p-6">
+            <div class="space-y-3">
+              <div class="flex items-start justify-between">
+                <div class="mb-2 border border-[#1a2f48] text-[#1a2f48] text-sm font-medium rounded-md px-2 py-0.5">
+                  Conference
+                </div>
+                <div class="flex items-center space-x-2 text-[#1a2f48]/70 text-sm">
+                  <span class="material-symbols-outlined">calendar_today</span>
+                  <span>2022</span>
+                </div>
+              </div>
+              <h3 class="text-lg font-semibold text-[#1a2f48] leading-tight">
+                El problema del ruteo de furgones escolares selectivo, con carga mixta, flota heterogénea y ventanas de tiempo
+              </h3>
+              <p class="text-[#1a2f48]/70 text-sm">
+                <strong class="font-bold">M. Villagra-Aguayo</strong>, C. Obreque, G. Latorre-Nuñez, P. Álvarez, A. Barrales-Araneda, C. Bizama
+              </p>
+              <div class="flex items-center justify-between pt-2">
+                <div class="flex items-center space-x-2 text-[#1a2f48]/70 text-sm">
+                  <span class="material-symbols-outlined">place</span>
+                  <span>CLAIO 2022 • Buenos Aires, Argentina</span>
+                </div>
+                <button class="hidden flex items-center space-x-1 text-[#a21c26] hover:bg-[#a21c26]/10 text-sm px-2 py-1 rounded">
+                  <span class="material-symbols-outlined">visibility</span>
+                  <span>View</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] bg-white">
+          <div class="p-6">
+            <div class="space-y-3">
+              <div class="flex items-start justify-between">
+                <div class="mb-2 border border-[#1a2f48] text-[#1a2f48] text-sm font-medium rounded-md px-2 py-0.5">
+                  Conference
+                </div>
+                <div class="flex items-center space-x-2 text-[#1a2f48]/70 text-sm">
+                  <span class="material-symbols-outlined">calendar_today</span>
+                  <span>2022</span>
+                </div>
+              </div>
+              <h3 class="text-lg font-semibold text-[#1a2f48] leading-tight">
+                Ruteo de furgones escolares selectivo, con carga mixta, flota homogénea y transbordo
+              </h3>
+              <p class="text-[#1a2f48]/70 text-sm">
+                <strong class="font-bold">C. Obreque</strong>, G. Latorre-Nuñez, P. Álvarez, A. Barrales-Araneda, C. Bizama, M. Villagra-Aguayo
+              </p>
+              <div class="flex items-center justify-between pt-2">
+                <div class="flex items-center space-x-2 text-[#1a2f48]/70 text-sm">
+                  <span class="material-symbols-outlined">place</span>
+                  <span>CLAIO 2022 • Buenos Aires, Argentina</span>
+                </div>
+                <button class="hidden flex items-center space-x-1 text-[#a21c26] hover:bg-[#a21c26]/10 text-sm px-2 py-1 rounded">
+                  <span class="material-symbols-outlined">visibility</span>
+                  <span>View</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] bg-white">
+          <div class="p-6">
+            <div class="space-y-3">
+              <div class="flex items-start justify-between">
+                <div class="mb-2 border border-[#1a2f48] text-[#1a2f48] text-sm font-medium rounded-md px-2 py-0.5">
+                  Conference
+                </div>
+                <div class="flex items-center space-x-2 text-[#1a2f48]/70 text-sm">
+                  <span class="material-symbols-outlined">calendar_today</span>
+                  <span>2022</span>
+                </div>
+              </div>
+              <h3 class="text-lg font-semibold text-[#1a2f48] leading-tight">
+                Finding Criminal Groups in Suspect Networks Using a Steiner Tree Approach
+              </h3>
+              <p class="text-[#1a2f48]/70 text-sm">
+                F. Troncoso, <strong class="font-bold">R. Weber</strong>, A. Barrales-Araneda
+              </p>
+              <div class="flex items-center justify-between pt-2">
+                <div class="flex items-center space-x-2 text-[#1a2f48]/70 text-sm">
+                  <span class="material-symbols-outlined">place</span>
+                  <span>EURO 2022 • Espoo, Finland</span>
+                </div>
+                <button class="hidden flex items-center space-x-1 text-[#a21c26] hover:bg-[#a21c26]/10 text-sm px-2 py-1 rounded">
+                  <span class="material-symbols-outlined">visibility</span>
+                  <span>View</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] bg-white">
+          <div class="p-6">
+            <div class="space-y-3">
+              <div class="flex items-start justify-between">
+                <div class="mb-2 border border-[#1a2f48] text-[#1a2f48] text-sm font-medium rounded-md px-2 py-0.5">
+                  Conference
+                </div>
+                <div class="flex items-center space-x-2 text-[#1a2f48]/70 text-sm">
+                  <span class="material-symbols-outlined">calendar_today</span>
+                  <span>2020</span>
+                </div>
+              </div>
+              <h3 class="text-lg font-semibold text-[#1a2f48] leading-tight">
+                Un modelo de programación lineal entera para el Median Tour Problem Generalizado con Tiempo Acumulado
+              </h3>
+              <p class="text-[#1a2f48]/70 text-sm">
+                <strong class="font-bold">A. Barrales-Araneda</strong>, C. Obreque
+              </p>
+              <div class="flex items-center justify-between pt-2">
+                <div class="flex items-center space-x-2 text-[#1a2f48]/70 text-sm">
+                  <span class="material-symbols-outlined">place</span>
+                  <span>VIII Encuentro de Investigación de Estudiantes de Postgrado UBB 2020 • Concepción, Chile</span>
+                </div>
+                <button class="hidden flex items-center space-x-1 text-[#a21c26] hover:bg-[#a21c26]/10 text-sm px-2 py-1 rounded">
+                  <span class="material-symbols-outlined">visibility</span>
+                  <span>View</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] bg-white">
+          <div class="p-6">
+            <div class="space-y-3">
+              <div class="flex items-start justify-between">
+                <div class="mb-2 border border-[#1a2f48] text-[#1a2f48] text-sm font-medium rounded-md px-2 py-0.5">
+                  Conference
+                </div>
+                <div class="flex items-center space-x-2 text-[#1a2f48]/70 text-sm">
+                  <span class="material-symbols-outlined">calendar_today</span>
+                  <span>2019</span>
+                </div>
+              </div>
+              <h3 class="text-lg font-semibold text-[#1a2f48] leading-tight">
+                Formulación y solución para el median tour problem generalizado con tiempo acumulado
+              </h3>
+              <p class="text-[#1a2f48]/70 text-sm">
+                <strong class="font-bold">A. Barrales-Araneda</strong>, C. Obreque
+              </p>
+              <div class="flex items-center justify-between pt-2">
+                <div class="flex items-center space-x-2 text-[#1a2f48]/70 text-sm">
+                  <span class="material-symbols-outlined">place</span>
+                  <span>OPTIMA 2019 • Santa Cruz, Chile</span>
+                </div>
+                <button class="hidden flex items-center space-x-1 text-[#a21c26] hover:bg-[#a21c26]/10 text-sm px-2 py-1 rounded">
+                  <span class="material-symbols-outlined">visibility</span>
+                  <span>View</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] bg-white">
+          <div class="p-6">
+            <div class="space-y-3">
+              <div class="flex items-start justify-between">
+                <div class="mb-2 border border-[#1a2f48] text-[#1a2f48] text-sm font-medium rounded-md px-2 py-0.5">
+                  Conference
+                </div>
+                <div class="flex items-center space-x-2 text-[#1a2f48]/70 text-sm">
+                  <span class="material-symbols-outlined">calendar_today</span>
+                  <span>2019</span>
+                </div>
+              </div>
+              <h3 class="text-lg font-semibold text-[#1a2f48] leading-tight">
+                Formulation for the median tour problem generalized with cumulative time
+              </h3>
+              <p class="text-[#1a2f48]/70 text-sm">
+                <strong class="font-bold">A. Barrales-Araneda</strong>, C. Obreque
+              </p>
+              <div class="flex items-center justify-between pt-2">
+                <div class="flex items-center space-x-2 text-[#1a2f48]/70 text-sm">
+                  <span class="material-symbols-outlined">place</span>
+                  <span>ICCL 2019 • Barranquilla, Colombia</span>
+                </div>
+                <button class="hidden flex items-center space-x-1 text-[#a21c26] hover:bg-[#a21c26]/10 text-sm px-2 py-1 rounded">
+                  <span class="material-symbols-outlined">visibility</span>
+                  <span>View</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="projects" class="py-16 px-4 bg-[#ececec]">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-[#1a2f48] mb-4">Research Projects</h2>
+        <p class="text-[#1a2f48]/70">Current and ongoing research initiatives</p>
+      </div>
+      <div class="space-y-6">
+        <div class="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] bg-white rounded-lg">
+          <div class="p-6 space-y-4">
+            <div class="flex items-start justify-between">
+              <div class="space-y-2">
+                <div class="flex items-center space-x-3">
+                  <h3 class="text-xl font-semibold text-[#1a2f48]">FONDEF IT23I0061, University of Bío-Bío</h3>
+                  <span class="inline-block text-sm px-2 py-1 rounded bg-[#a21c26] text-white">Ongoing</span>
+                </div>
+                <div class="flex items-center space-x-2 text-[#1a2f48]/70">
+                  <span class="material-symbols-outlined">location_on</span>
+                  <span>Concepción, Chile</span>
+                  <span>•</span>
+                  <span class="font-medium">Research Assistant</span>
+                  <span>•</span>
+                  <span>May 2024 - Jul. 2024</span>
+                </div>
+              </div>
+              <span class="inline-block text-sm px-2 py-1 rounded border border-[#a21c26] text-[#a21c26]">
+                FONDEF
+              </span>
+            </div>
+            <p class="text-[#1a2f48]/80 leading-relaxed">
+              Scaling and validation of an integrated system for crime prosecution using advanced data analytics.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-sm px-2 py-1 rounded bg-[#1a2f48]/10 text-[#1a2f48] hover:bg-[#1a2f48]/20">Data Analytics</span>
+              <span class="text-sm px-2 py-1 rounded bg-[#1a2f48]/10 text-[#1a2f48] hover:bg-[#1a2f48]/20">Crime Prosecution</span>
+              <span class="text-sm px-2 py-1 rounded bg-[#1a2f48]/10 text-[#1a2f48] hover:bg-[#1a2f48]/20">System Integration</span>
+            </div>
+            <div class="flex items-center justify-between pt-2 border-t border-[#ececec]">
+              <div class="flex items-center space-x-2 text-[#1a2f48]/70">
+                <span class="material-symbols-outlined">assignment</span>
+                <span class="text-sm">Research Project</span>
+              </div>
+              <button class="hidden flex items-center space-x-1 text-[#a21c26] hover:bg-[#a21c26]/10 px-2 py-1 rounded transition-all text-sm">
+                <span class="material-symbols-outlined">open_in_new</span>
+                <span>Learn More</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] bg-white rounded-lg">
+          <div class="p-6 space-y-4">
+            <div class="flex items-start justify-between">
+              <div class="space-y-2">
+                <div class="flex items-center space-x-3">
+                  <h3 class="text-xl font-semibold text-[#1a2f48]">ISCI - ISCI Impact Fund, University of Chile</h3>
+                </div>
+                <div class="flex items-center space-x-2 text-[#1a2f48]/70">
+                  <span class="material-symbols-outlined">location_on</span>
+                  <span>Concepción, Chile</span>
+                  <span>•</span>
+                  <span class="font-medium">Research Assistant</span>
+                  <span>•</span>
+                  <span>Oct. 2023 - Mar. 2024</span>
+                </div>
+              </div>
+              <span class="inline-block text-sm px-2 py-1 rounded border border-[#a21c26] text-[#a21c26]">
+                ISCI
+              </span>
+            </div>
+            <p class="text-[#1a2f48]/80 leading-relaxed">
+              Developed a specialized tool for processing large volumes of text to enhance the effectiveness of crime investigation. Created an AI-based system that translates natural language queries into SQL queries. Developed an MVP integrating natural language querying and data visualization.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-sm px-2 py-1 rounded bg-[#1a2f48]/10 text-[#1a2f48] hover:bg-[#1a2f48]/20">Natural Language Processing</span>
+              <span class="text-sm px-2 py-1 rounded bg-[#1a2f48]/10 text-[#1a2f48] hover:bg-[#1a2f48]/20">AI Systems</span>
+              <span class="text-sm px-2 py-1 rounded bg-[#1a2f48]/10 text-[#1a2f48] hover:bg-[#1a2f48]/20">Crime Investigation</span>
+            </div>
+            <div class="flex items-center justify-between pt-2 border-t border-[#ececec]">
+              <div class="flex items-center space-x-2 text-[#1a2f48]/70">
+                <span class="material-symbols-outlined">assignment</span>
+                <span class="text-sm">Research Project</span>
+              </div>
+              <button class="hidden flex items-center space-x-1 text-[#a21c26] hover:bg-[#a21c26]/10 px-2 py-1 rounded transition-all text-sm">
+                <span class="material-symbols-outlined">open_in_new</span>
+                <span>Learn More</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] bg-white rounded-lg">
+          <div class="p-6 space-y-4">
+            <div class="flex items-start justify-between">
+              <div class="space-y-2">
+                <div class="flex items-center space-x-3">
+                  <h3 class="text-xl font-semibold text-[#1a2f48]">Public Prosecutor's Office, University of Chile</h3>
+                </div>
+                <div class="flex items-center space-x-2 text-[#1a2f48]/70">
+                  <span class="material-symbols-outlined">location_on</span>
+                  <span>Concepción, Chile</span>
+                  <span>•</span>
+                  <span class="font-medium">Research Assistant</span>
+                  <span>•</span>
+                  <span>Apr. 2023 - Mar. 2024</span>
+                </div>
+              </div>
+              <span class="inline-block text-sm px-2 py-1 rounded border border-[#a21c26] text-[#a21c26]">
+                Public
+              </span>
+            </div>
+            <p class="text-[#1a2f48]/80 leading-relaxed">
+              Developed optimization and ML algorithms for detecting patterns in fraud and homicide cases. Enhanced Fiscal Heredia with new data sources. Led training and coordination sessions with institutional stakeholders.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-sm px-2 py-1 rounded bg-[#1a2f48]/10 text-[#1a2f48] hover:bg-[#1a2f48]/20">Machine Learning</span>
+              <span class="text-sm px-2 py-1 rounded bg-[#1a2f48]/10 text-[#1a2f48] hover:bg-[#1a2f48]/20">Optimization</span>
+              <span class="text-sm px-2 py-1 rounded bg-[#1a2f48]/10 text-[#1a2f48] hover:bg-[#1a2f48]/20">LegalTech</span>
+            </div>
+            <div class="flex items-center justify-between pt-2 border-t border-[#ececec]">
+              <div class="flex items-center space-x-2 text-[#1a2f48]/70">
+                <span class="material-symbols-outlined">assignment</span>
+                <span class="text-sm">Research Project</span>
+              </div>
+              <button class="hidden flex items-center space-x-1 text-[#a21c26] hover:bg-[#a21c26]/10 px-2 py-1 rounded transition-all text-sm">
+                <span class="material-symbols-outlined">open_in_new</span>
+                <span>Learn More</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] bg-white rounded-lg">
+          <div class="p-6 space-y-4">
+            <div class="flex items-start justify-between">
+              <div class="space-y-2">
+                <div class="flex items-center space-x-3">
+                  <h3 class="text-xl font-semibold text-[#1a2f48]">FONDECYT 1221562, University of Chile</h3>
+                </div>
+                <div class="flex items-center space-x-2 text-[#1a2f48]/70">
+                  <span class="material-symbols-outlined">location_on</span>
+                  <span>Concepción, Chile</span>
+                  <span>•</span>
+                  <span class="font-medium">Research Assistant</span>
+                  <span>•</span>
+                  <span>Apr. 2023 - Mar. 2024</span>
+                </div>
+              </div>
+              <span class="inline-block text-sm px-2 py-1 rounded border border-[#a21c26] text-[#a21c26]">
+                FONDECYT
+              </span>
+            </div>
+            <p class="text-[#1a2f48]/80 leading-relaxed">
+              Implemented OCoDeDANet for dynamic graph community detection. Ran benchmarks and contributed to scientific publication on overlapping communities.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-sm px-2 py-1 rounded bg-[#1a2f48]/10 text-[#1a2f48] hover:bg-[#1a2f48]/20">Graph Algorithms</span>
+              <span class="text-sm px-2 py-1 rounded bg-[#1a2f48]/10 text-[#1a2f48] hover:bg-[#1a2f48]/20">Community Detection</span>
+              <span class="text-sm px-2 py-1 rounded bg-[#1a2f48]/10 text-[#1a2f48] hover:bg-[#1a2f48]/20">Dynamic Networks</span>
+            </div>
+            <div class="flex items-center justify-between pt-2 border-t border-[#ececec]">
+              <div class="flex items-center space-x-2 text-[#1a2f48]/70">
+                <span class="material-symbols-outlined">assignment</span>
+                <span class="text-sm">Research Project</span>
+              </div>
+              <button class="hidden flex items-center space-x-1 text-[#a21c26] hover:bg-[#a21c26]/10 px-2 py-1 rounded transition-all text-sm">
+                <span class="material-symbols-outlined">open_in_new</span>
+                <span>Learn More</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] bg-white rounded-lg">
+          <div class="p-6 space-y-4">
+            <div class="flex items-start justify-between">
+              <div class="space-y-2">
+                <div class="flex items-center space-x-3">
+                  <h3 class="text-xl font-semibold text-[#1a2f48]">Project 2160285 GI/EF, University of Bío-Bío</h3>
+                  <span class="inline-block text-sm px-2 py-1 rounded bg-[#a21c26] text-white">Ongoing</span>
+                </div>
+                <div class="flex items-center space-x-2 text-[#1a2f48]/70">
+                  <span class="material-symbols-outlined">location_on</span>
+                  <span>Concepción, Chile</span>
+                  <span>•</span>
+                  <span class="font-medium">Research Assistant</span>
+                  <span>•</span>
+                  <span>Mar. 2022 - Present</span>
+                </div>
+              </div>
+              <span class="inline-block text-sm px-2 py-1 rounded border border-[#a21c26] text-[#a21c26]">
+                Project
+              </span>
+            </div>
+            <p class="text-[#1a2f48]/80 leading-relaxed">
+              Collaborated with AMDEL on waste collection logistics. Co-authored papers in Operations Research. Participated in university-industry transport/logistics project development.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-sm px-2 py-1 rounded bg-[#1a2f48]/10 text-[#1a2f48] hover:bg-[#1a2f48]/20">Logistics</span>
+              <span class="text-sm px-2 py-1 rounded bg-[#1a2f48]/10 text-[#1a2f48] hover:bg-[#1a2f48]/20">Operations Research</span>
+              <span class="text-sm px-2 py-1 rounded bg-[#1a2f48]/10 text-[#1a2f48] hover:bg-[#1a2f48]/20">Sustainability</span>
+            </div>
+            <div class="flex items-center justify-between pt-2 border-t border-[#ececec]">
+              <div class="flex items-center space-x-2 text-[#1a2f48]/70">
+                <span class="material-symbols-outlined">assignment</span>
+                <span class="text-sm">Research Project</span>
+              </div>
+              <button class="hidden flex items-center space-x-1 text-[#a21c26] hover:bg-[#a21c26]/10 px-2 py-1 rounded transition-all text-sm">
+                <span class="material-symbols-outlined">open_in_new</span>
+                <span>Learn More</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] bg-white rounded-lg">
+          <div class="p-6 space-y-4">
+            <div class="flex items-start justify-between">
+              <div class="space-y-2">
+                <div class="flex items-center space-x-3">
+                  <h3 class="text-xl font-semibold text-[#1a2f48]">FONDEF ID20I10230, University of Bío-Bío</h3>
+                </div>
+                <div class="flex items-center space-x-2 text-[#1a2f48]/70">
+                  <span class="material-symbols-outlined">location_on</span>
+                  <span>Concepción, Chile</span>
+                  <span>•</span>
+                  <span class="font-medium">Research Assistant</span>
+                  <span>•</span>
+                  <span>Nov. 2021 - Mar. 2023</span>
+                </div>
+              </div>
+              <span class="inline-block text-sm px-2 py-1 rounded border border-[#a21c26] text-[#a21c26]">
+                FONDEF
+              </span>
+            </div>
+            <p class="text-[#1a2f48]/80 leading-relaxed">
+              Created models to identify criminal groups through social network analysis. Delivered Fiscal Heredia prototype to Prosecutor's Office. Presented at CLAIO, EURO, and IFORS conferences.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-sm px-2 py-1 rounded bg-[#1a2f48]/10 text-[#1a2f48] hover:bg-[#1a2f48]/20">Social Network Analysis</span>
+              <span class="text-sm px-2 py-1 rounded bg-[#1a2f48]/10 text-[#1a2f48] hover:bg-[#1a2f48]/20">Optimization</span>
+              <span class="text-sm px-2 py-1 rounded bg-[#1a2f48]/10 text-[#1a2f48] hover:bg-[#1a2f48]/20">Crime Analysis</span>
+            </div>
+            <div class="flex items-center justify-between pt-2 border-t border-[#ececec]">
+              <div class="flex items-center space-x-2 text-[#1a2f48]/70">
+                <span class="material-symbols-outlined">assignment</span>
+                <span class="text-sm">Research Project</span>
+              </div>
+              <button class="hidden flex items-center space-x-1 text-[#a21c26] hover:bg-[#a21c26]/10 px-2 py-1 rounded transition-all text-sm">
+                <span class="material-symbols-outlined">open_in_new</span>
+                <span>Learn More</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] bg-white rounded-lg">
+          <div class="p-6 space-y-4">
+            <div class="flex items-start justify-between">
+              <div class="space-y-2">
+                <div class="flex items-center space-x-3">
+                  <h3 class="text-xl font-semibold text-[#1a2f48]">Project UBB 2155, University of Bío-Bío</h3>
+                </div>
+                <div class="flex items-center space-x-2 text-[#1a2f48]/70">
+                  <span class="material-symbols-outlined">location_on</span>
+                  <span>Concepción, Chile</span>
+                  <span>•</span>
+                  <span class="font-medium">Research Assistant</span>
+                  <span>•</span>
+                  <span>Jun. 2021 - Dec. 2021</span>
+                </div>
+              </div>
+              <span class="inline-block text-sm px-2 py-1 rounded border border-[#a21c26] text-[#a21c26]">
+                Project
+              </span>
+            </div>
+            <p class="text-[#1a2f48]/80 leading-relaxed">
+              Analyzed public transport GPS data for congestion studies. Evaluated school transport policies in Chillán.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-sm px-2 py-1 rounded bg-[#1a2f48]/10 text-[#1a2f48] hover:bg-[#1a2f48]/20">Transportation</span>
+              <span class="text-sm px-2 py-1 rounded bg-[#1a2f48]/10 text-[#1a2f48] hover:bg-[#1a2f48]/20">Public Policy</span>
+              <span class="text-sm px-2 py-1 rounded bg-[#1a2f48]/10 text-[#1a2f48] hover:bg-[#1a2f48]/20">Data Analysis</span>
+            </div>
+            <div class="flex items-center justify-between pt-2 border-t border-[#ececec]">
+              <div class="flex items-center space-x-2 text-[#1a2f48]/70">
+                <span class="material-symbols-outlined">assignment</span>
+                <span class="text-sm">Research Project</span>
+              </div>
+              <button class="hidden flex items-center space-x-1 text-[#a21c26] hover:bg-[#a21c26]/10 px-2 py-1 rounded transition-all text-sm">
+                <span class="material-symbols-outlined">open_in_new</span>
+                <span>Learn More</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] bg-white rounded-lg">
+          <div class="p-6 space-y-4">
+            <div class="flex items-start justify-between">
+              <div class="space-y-2">
+                <div class="flex items-center space-x-3">
+                  <h3 class="text-xl font-semibold text-[#1a2f48]">FONDECYT 1181036, University of Chile</h3>
+                </div>
+                <div class="flex items-center space-x-2 text-[#1a2f48]/70">
+                  <span class="material-symbols-outlined">location_on</span>
+                  <span>Santiago, Chile</span>
+                  <span>•</span>
+                  <span class="font-medium">Research Assistant</span>
+                  <span>•</span>
+                  <span>Mar. 2021 - Mar. 2022</span>
+                </div>
+              </div>
+              <span class="inline-block text-sm px-2 py-1 rounded border border-[#a21c26] text-[#a21c26]">
+                FONDECYT
+              </span>
+            </div>
+            <p class="text-[#1a2f48]/80 leading-relaxed">
+              Developed algorithms for dynamic social networks. Submitted results to WoS-indexed journal.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-sm px-2 py-1 rounded bg-[#1a2f48]/10 text-[#1a2f48] hover:bg-[#1a2f48]/20">Dynamic Networks</span>
+              <span class="text-sm px-2 py-1 rounded bg-[#1a2f48]/10 text-[#1a2f48] hover:bg-[#1a2f48]/20">Algorithm Design</span>
+              <span class="text-sm px-2 py-1 rounded bg-[#1a2f48]/10 text-[#1a2f48] hover:bg-[#1a2f48]/20">Community Detection</span>
+            </div>
+            <div class="flex items-center justify-between pt-2 border-t border-[#ececec]">
+              <div class="flex items-center space-x-2 text-[#1a2f48]/70">
+                <span class="material-symbols-outlined">assignment</span>
+                <span class="text-sm">Research Project</span>
+              </div>
+              <button class="hidden flex items-center space-x-1 text-[#a21c26] hover:bg-[#a21c26]/10 px-2 py-1 rounded transition-all text-sm">
+                <span class="material-symbols-outlined">open_in_new</span>
+                <span>Learn More</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] bg-white rounded-lg">
+          <div class="p-6 space-y-4">
+            <div class="flex items-start justify-between">
+              <div class="space-y-2">
+                <div class="flex items-center space-x-3">
+                  <h3 class="text-xl font-semibold text-[#1a2f48]">Project ING 2030 I+D 20-45, University of Bío-Bío</h3>
+                </div>
+                <div class="flex items-center space-x-2 text-[#1a2f48]/70">
+                  <span class="material-symbols-outlined">location_on</span>
+                  <span>Concepción, Chile</span>
+                  <span>•</span>
+                  <span class="font-medium">Research Assistant</span>
+                  <span>•</span>
+                  <span>Aug. 2020 - Mar. 2021</span>
+                </div>
+              </div>
+              <span class="inline-block text-sm px-2 py-1 rounded border border-[#a21c26] text-[#a21c26]">
+                Project
+              </span>
+            </div>
+            <p class="text-[#1a2f48]/80 leading-relaxed">
+              Worked on MIP model for School Bus Routing Problem. Developed mobile app for school transport communication.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-sm px-2 py-1 rounded bg-[#1a2f48]/10 text-[#1a2f48] hover:bg-[#1a2f48]/20">Routing Problems</span>
+              <span class="text-sm px-2 py-1 rounded bg-[#1a2f48]/10 text-[#1a2f48] hover:bg-[#1a2f48]/20">Mobile Development</span>
+              <span class="text-sm px-2 py-1 rounded bg-[#1a2f48]/10 text-[#1a2f48] hover:bg-[#1a2f48]/20">Transportation</span>
+            </div>
+            <div class="flex items-center justify-between pt-2 border-t border-[#ececec]">
+              <div class="flex items-center space-x-2 text-[#1a2f48]/70">
+                <span class="material-symbols-outlined">assignment</span>
+                <span class="text-sm">Research Project</span>
+              </div>
+              <button class="hidden flex items-center space-x-1 text-[#a21c26] hover:bg-[#a21c26]/10 px-2 py-1 rounded transition-all text-sm">
+                <span class="material-symbols-outlined">open_in_new</span>
+                <span>Learn More</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] bg-white rounded-lg">
+          <div class="p-6 space-y-4">
+            <div class="flex items-start justify-between">
+              <div class="space-y-2">
+                <div class="flex items-center space-x-3">
+                  <h3 class="text-xl font-semibold text-[#1a2f48]">Research Group, GI 171411/EF, University of Bío-Bío</h3>
+                </div>
+                <div class="flex items-center space-x-2 text-[#1a2f48]/70">
+                  <span class="material-symbols-outlined">location_on</span>
+                  <span>Concepción, Chile</span>
+                  <span>•</span>
+                  <span class="font-medium">Research Assistant</span>
+                  <span>Aug. 2018 - Dec. 2018</span>
+                </div>
+              </div>
+              <span class="inline-block text-sm px-2 py-1 rounded border border-[#a21c26] text-[#a21c26]">
+                Research
+              </span>
+            </div>
+            <p class="text-[#1a2f48]/80 leading-relaxed">
+              Formulated and implemented model for GMTP with latency. Presented findings at ICCL and OPTIMA 2019.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-sm px-2 py-1 rounded bg-[#1a2f48]/10 text-[#1a2f48] hover:bg-[#1a2f48]/20">Linear Programming</span>
+              <span class="text-sm px-2 py-1 rounded bg-[#1a2f48]/10 text-[#1a2f48] hover:bg-[#1a2f48]/20">Tour Optimization</span>
+              <span class="text-sm px-2 py-1 rounded bg-[#1a2f48]/10 text-[#1a2f48] hover:bg-[#1a2f48]/20">Academic Research</span>
+            </div>
+            <div class="flex items-center justify-between pt-2 border-t border-[#ececec]">
+              <div class="flex items-center space-x-2 text-[#1a2f48]/70">
+                <span class="material-symbols-outlined">assignment</span>
+                <span class="text-sm">Research Project</span>
+              </div>
+              <button class="hidden flex items-center space-x-1 text-[#a21c26] hover:bg-[#a21c26]/10 px-2 py-1 rounded transition-all text-sm">
+                <span class="material-symbols-outlined">open_in_new</span>
+                <span>Learn More</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] bg-white rounded-lg">
+          <div class="p-6 space-y-4">
+            <div class="flex items-start justify-between">
+              <div class="space-y-2">
+                <div class="flex items-center space-x-3">
+                  <h3 class="text-xl font-semibold text-[#1a2f48]">Spatial Economics Laboratory, University of Bío-Bío</h3>
+                </div>
+                <div class="flex items-center space-x-2 text-[#1a2f48]/70">
+                  <span class="material-symbols-outlined">location_on</span>
+                  <span>Concepción, Chile</span>
+                  <span>•</span>
+                  <span class="font-medium">Research Assistant</span>
+                  <span>•</span>
+                  <span>Aug. 2017 - Aug. 2018</span>
+                </div>
+              </div>
+              <span class="inline-block text-sm px-2 py-1 rounded border border-[#a21c26] text-[#a21c26]">
+                Spatial
+              </span>
+            </div>
+            <p class="text-[#1a2f48]/80 leading-relaxed">
+              Analyzed sociodemographic and survey data for Concepción's mobility plan. Processed logistics data for National Congress study.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-sm px-2 py-1 rounded bg-[#1a2f48]/10 text-[#1a2f48] hover:bg-[#1a2f48]/20">Urban Planning</span>
+              <span class="text-sm px-2 py-1 rounded bg-[#1a2f48]/10 text-[#1a2f48] hover:bg-[#1a2f48]/20">Data Processing</span>
+              <span class="text-sm px-2 py-1 rounded bg-[#1a2f48]/10 text-[#1a2f48] hover:bg-[#1a2f48]/20">Policy Research</span>
+            </div>
+            <div class="flex items-center justify-between pt-2 border-t border-[#ececec]">
+              <div class="flex items-center space-x-2 text-[#1a2f48]/70">
+                <span class="material-symbols-outlined">assignment</span>
+                <span class="text-sm">Research Project</span>
+              </div>
+              <button class="hidden flex items-center space-x-1 text-[#a21c26] hover:bg-[#a21c26]/10 px-2 py-1 rounded transition-all text-sm">
+                <span class="material-symbols-outlined">open_in_new</span>
+                <span>Learn More</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="py-12 px-4 bg-[#1a2f48] text-white">
+    <div class="max-w-4xl mx-auto text-center space-y-6">
+      <p class="text-sm text-white/70">
+        I didn't expect anyone to come this far. Someday I'll put something more interesting. Thanks for reading.
+      </p>
+      <div class="flex justify-center gap-3">
+        <a href="https://github.com/alexfabianb94" target="_blank" rel="noopener noreferrer"
+           class="group flex items-center justify-center w-10 h-10 bg-white/10 rounded-lg transition-all duration-300 hover:bg-[#333] hover:scale-110"
+           title="GitHub">
+          <span class="material-symbols-outlined text-white">code</span>
+        </a>
+        <a href="https://orcid.org/0000-0003-4457-5239" target="_blank" rel="noopener noreferrer"
+           class="group flex items-center justify-center w-10 h-10 bg-white/10 rounded-lg transition-all duration-300 hover:bg-[#A6CE39] hover:scale-110"
+           title="ORCID">
+          <span class="material-symbols-outlined text-white">person</span>
+        </a>
+        <a href="https://orcid.org/0000-0003-4457-5239" target="_blank" rel="noopener noreferrer"
+           class="group flex items-center justify-center w-10 h-10 bg-white/10 rounded-lg transition-all duration-300 hover:bg-[#4285F4] hover:scale-110"
+           title="Google Scholar">
+          <span class="material-symbols-outlined text-white">school</span>
+        </a>
+        <a href="https://www.discogs.com/es/user/abarrales/collection" target="_blank" rel="noopener noreferrer"
+           class="group flex items-center justify-center w-10 h-10 bg-white/10 rounded-lg transition-all duration-300 hover:bg-[#333333] hover:scale-110"
+           title="Discogs">
+          <span class="material-symbols-outlined text-white">album</span>
+        </a>
+        <a href="https://youtube.com//@alexfabianb94" target="_blank" rel="noopener noreferrer"
+           class="group flex items-center justify-center w-10 h-10 bg-white/10 rounded-lg transition-all duration-300 hover:bg-[#FF0000] hover:scale-110"
+           title="YouTube">
+          <span class="material-symbols-outlined text-white">smart_display</span>
+        </a>
+        <a href="https://x.com/alexfabianb94" target="_blank" rel="noopener noreferrer"
+           class="group flex items-center justify-center w-10 h-10 bg-white/10 rounded-lg transition-all duration-300 hover:bg-[#1DA1F2] hover:scale-110"
+           title="Twitter">
+          <span class="material-symbols-outlined text-white">public</span>
+        </a>
+      </div>
+      <p class="text-sm text-white/50">Built with caffeine and insomnia – Alex Barrales-Araneda</p>
+    </div>
   </footer>
   <script>
-    document.querySelectorAll('nav a').forEach(anchor => {
-      anchor.addEventListener('click', adjustScroll);
+    const navbar = document.getElementById("navbar");
+    const brand = document.getElementById("navbar-brand");
+    const buttons = {
+      bio: document.getElementById("nav-bio"),
+      education: document.getElementById("nav-education"),
+      conferences: document.getElementById("nav-conferences"),
+      projects: document.getElementById("nav-projects"),
+    };
+  
+    window.addEventListener("scroll", () => {
+      const isScrolled = window.scrollY > 10;
+  
+      navbar.classList.toggle("bg-white/95", isScrolled);
+      navbar.classList.toggle("backdrop-blur-sm", isScrolled);
+      navbar.classList.toggle("shadow-lg", isScrolled);
+      navbar.classList.toggle("bg-transparent", !isScrolled);
+  
+      brand.classList.toggle("text-[#1a2f48]", isScrolled);
+      brand.classList.toggle("text-white", !isScrolled);
+  
+      for (const id in buttons) {
+        const btn = buttons[id];
+        const isActive = btn.classList.contains("active");
+  
+        btn.className =
+          `flex items-center space-x-2 px-3 py-2 rounded-lg transition-all duration-200 ${
+            isActive
+              ? "bg-[#a21c26] text-white"
+              : isScrolled
+                ? "text-[#1a2f48] hover:text-[#a21c26] hover:bg-[#ececec]"
+                : "text-white hover:text-white hover:bg-white/20"
+          }`;
+      }
+  
+      updateActiveSection();
     });
+  
+    function scrollToSection(id) {
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+        setActive(id);
+      }
+    }
+  
+    function setActive(id) {
+      for (const key in buttons) {
+        buttons[key].classList.remove("active");
+      }
+      buttons[id].classList.add("active");
+    }
+  
+    function updateActiveSection() {
+      const fromTop = window.scrollY + 80;
+  
+      for (const id in buttons) {
+        const section = document.getElementById(id);
+        if (section) {
+          const top = section.offsetTop;
+          const height = section.offsetHeight;
+          if (fromTop >= top && fromTop < top + height) {
+            setActive(id);
+            break;
+          }
+        }
+      }
+    }
+  
+    document.addEventListener("DOMContentLoaded", updateActiveSection);
   </script>
+
 </body>
 </html>
